@@ -85,6 +85,10 @@ After this, anytime you allow aider to make a code change, it'll make a nice lil
 
 One of my favorite things about aider is the ability to use /ask to answer tiny questions. My most common for a while was about setting up venv and activating them. On top of the raw type of "what terminal commands do i use?" questions, being able to ask for a quick lesson on WHY you even want to do something like set up a virtual env when making a python project is unbelievably helpful. It's enabled me to learn things, and apply that learning, at a very quick pace. It also has a secondary impact of making unknown problems I have seem a lot less intimidating. There's not many issues in basic dev work that 2 or 3 good questions can't solve.
 
+Here's a good example: 
+
+![asking a question to aider](/assets/notes/wslandaider/aider2.png)      
+
 **remember context!**
 
 /clear removes the message history. Getting shit responses? hit a clear! Keeps files you've added for context, but gives you a full, fresh chat context window to use. /reset is if you want to get rid of those files from the context window. Also I'm realizing I didn't even explain how to add files to the context window. it's with /add !.
@@ -165,4 +169,10 @@ fi
 
 I registered SotaFactory.com on cloudflare.com for a whopping $10.40 for the year.
 
-```
+Now we're deployed using cloudflares pages, which allows you to pull a directory from github and serve it fresh every commit that gets made.  This means free hosting for static sites, and it's all backed by the power of cloudflare.  Unlimited bandwidth and ddos protection and NO FEEEEEEEEEES. 
+
+## to do - website
+- analytics 
+- welcome page
+- logo
+- contact me
