@@ -72,6 +72,8 @@ and another command
 
 After this, anytime you allow aider to make a code change, it'll make a nice lil commit, so you can undo and branch to your hearts content. 
 
+**note** I did have to close out and re-open vscode so that vscode would open my project folder up in WSL mode, which also makes all your extensions (like the github extension) work as expected. I was having some trouble getting extensions to automatically see file updates, but close > reopen vscode fixed it.  amazing how turn it off and on always works. 
+
 
 ## Aider and its wonderful ask mode.
 
@@ -82,3 +84,78 @@ One of my favorite things about aider is the ability to use /ask to answer tiny 
 /clear removes the message history.  Getting shit responses? hit a clear! Keeps files you've added for context, but gives you a full, fresh chat context window to use.  /reset is if you want to get rid of those files from the context window.  Also I'm realizing I didn't even explain how to add files to the context window.  it's with /add !.  
 
 All of this seems esoteric and annoying when you read it, but in practice it's wild how fast you can interact with a fast model (like gemini 2.5 flash).
+
+
+## basking in the glory of WSL and Ubuntu
+
+gotta get that Jekyll life going. No stupid exe downloading for me! 
+
+sudo apt-get install ruby-full build-essential zlib1g-dev
+
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+gem install jekyll bundler
+
+then you go to your project folder in your shell
+
+jekyll new myblog
+
+and then
+
+cd myblog
+
+adn then
+
+bundle exec jekyll serve
+
+You'll see the site served at 
+
+http://localhost:4000
+
+
+## watch that context
+With the repo map enabled, all of the jekyll site is going to be considered for context when you talk to aider.  Probably not ideal.  What I think i'll do is set up the aider ignore file to pretty much only check content and config changes I make to the jekyll setup. 
+
+
+## first pass at a theme
+I'm just going to lean into the terminal existance I think we're moving towards. 
+
+https://github.com/b2a3e8/jekyll-theme-console fits the bill
+
+add the following to the gemfile in my folder
+
+gem "jekyll-theme-console"
+
+and then use the command
+
+bundle
+
+and then update the _config.yml file with
+
+theme: jekyll-theme-console
+
+Here's a complete bash script that gemini 2.5 flash made me on aistudio.google.com
+
+\# Ensure you are in your project's root directory
+echo 'gem "jekyll-theme-console"' >> Gemfile
+bundle install
+
+\# First, try to replace an existing theme line
+sed -i 's/^theme:\s*.*$/theme: jekyll-theme-console/' _config.yml
+
+\# Then, check if the line "theme: jekyll-theme-console" is now in the file
+\# If not, it means no 'theme:' line existed initially, so append it
+if ! grep -q "^theme:\s*jekyll-theme-console" _config.yml; then
+  echo 'theme: jekyll-theme-console' >> _config.yml
+  echo "No 'theme:' line found initially, added it."
+else
+  echo "'theme:' line replaced or confirmed."
+fi
+
+## deployment time!
+
+I registered SotaFactory.com on cloudflare.com for a whopping $10.40 for the year.  
+
