@@ -43,16 +43,16 @@ I specify gemini/ so that liteLLM knows to use the google ai key I have, and not
 Keys get set in this section. I use openrouter and gemini, but only free models for now. 1k requests a day via OpenRouter and 500 of the 2.5 flash thinking from Google AI Studio, or the Gemini Key. Verrryyyy attractive and probably temporary in the grand scheme of things. Maybe not though, maybe we'll have unlimited compute in the near future.
 
 #############
-Set an API key for a provider (eg: --api-key provider=<key> sets PROVIDER_API_KEY=<key>)
 api-key: xxx
 Specify multiple values like this:
 api-key:
 - openrouter=sk-xxxxxxxxxxxxxxxxxxxxxxx
-- gemini=AIxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-#  - yyy
-#  - zzz
+- gemini=AIxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 
-I also use the qwen 2.5 7b instruct model from OpenRouter for my commit and chat history summarization, mostly because aider makes one of those commit messages every single time you make a change, and I'd rather not waste expensive flash tokens when I could be using super duper fast and cheap qwen tokens. It's all free so it's a moot point for now, but SOMEDAY if compute gets less free than it is now, it's nice to know where smaller models fit.
+\#  - yyy
+\#  - zzz
+
+I also use the **qwen 2.5 7b instruct model** from OpenRouter for my commit and chat history summarization, mostly because aider makes one of those commit messages every single time you make a change, and I'd rather not waste expensive flash tokens when I could be using super duper fast and cheap qwen tokens. It's all free so it's a moot point for now, but SOMEDAY if compute gets less free than it is now, it's nice to know where smaller models fit.
 
 ###########
 Specify the model to use for commit messages and chat history summarization (default depends on --model)
@@ -78,6 +78,9 @@ and another command
 
 After this, anytime you allow aider to make a code change, it'll make a nice lil commit, so you can undo and branch to your hearts content.
 
+![aider lives!](/assets/notes/wslandaider/aider1.png)      
+
+
 **note** I did have to close out and re-open vscode so that vscode would open my project folder up in WSL mode, which also makes all your extensions (like the github extension) work as expected. I was having some trouble getting extensions to automatically see file updates, but close > reopen vscode fixed it. amazing how turn it off and on always works.
 
 
@@ -92,6 +95,8 @@ Here's a good example:
 **remember context!**
 
 /clear removes the message history. Getting shit responses? hit a clear! Keeps files you've added for context, but gives you a full, fresh chat context window to use. /reset is if you want to get rid of those files from the context window. Also I'm realizing I didn't even explain how to add files to the context window. it's with /add !.
+
+![using /clear to ask new questions](/assets/notes/wslandaider/aider3.png)   
 
 All of this seems esoteric and annoying when you read it, but in practice it's wild how fast you can interact with a fast model (like gemini 2.5 flash).
 
@@ -165,6 +170,10 @@ else
   echo "'theme:' line replaced or confirmed."
 fi
 
+**Here's what my VSCode window looks like:**
+![it's beautiful!](/assets/notes/wslandaider/aider4.png)  
+
+
 ## deployment time!
 
 I registered SotaFactory.com on cloudflare.com for a whopping $10.40 for the year.
@@ -176,3 +185,4 @@ Now we're deployed using cloudflares pages, which allows you to pull a directory
 - welcome page
 - logo
 - contact me
+
