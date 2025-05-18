@@ -64,4 +64,21 @@ You can also turn on verbose mode and add logging so you can really dive into ho
 
 Does it work? 
 
-Yes!
+Yes!  I added my github info (per the yellow message that aider will send you) with the /git command.  so /git config user.name putyourusernamehere
+
+and another command
+
+/git config user.email putyour@email.here
+
+After this, anytime you allow aider to make a code change, it'll make a nice lil commit, so you can undo and branch to your hearts content. 
+
+
+## Aider and its wonderful ask mode.
+
+One of my favorite things about aider is the ability to use /ask to answer tiny questions.  My most common for a while was about setting up venv and activating them.  On top of the raw type of "what terminal commands do i use?" questions, being able to ask for a quick lesson on WHY you even want to do something like set up a virtual env when making a python project is unbelievably helpful.  It's enabled me to learn things, and apply that learning, at a very quick pace.  It also has a secondary impact of making unknown problems I have seem a lot less intimidating.  There's not many issues in basic dev work that 2 or 3 good questions can't solve. 
+
+**remember context!**
+
+/clear removes the message history.  Getting shit responses? hit a clear! Keeps files you've added for context, but gives you a full, fresh chat context window to use.  /reset is if you want to get rid of those files from the context window.  Also I'm realizing I didn't even explain how to add files to the context window.  it's with /add !.  
+
+All of this seems esoteric and annoying when you read it, but in practice it's wild how fast you can interact with a fast model (like gemini 2.5 flash).
