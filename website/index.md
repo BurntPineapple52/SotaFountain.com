@@ -4,4 +4,4 @@ layout: home
 permalink: /
 ---
 
-# SOTA Fountain
+# SOTA Fountain!
