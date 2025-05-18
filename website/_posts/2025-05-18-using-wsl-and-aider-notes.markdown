@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using WSL and Aider Notes"
-date: 2025-05-18 10:00:00 -0500
+date: 2025-05-18
 ---
 
 # I'm going full linux (when doing dev in windows)
