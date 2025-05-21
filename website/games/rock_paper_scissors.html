@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock, Paper, Scissors</title>
+<style>
+  body {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+  h1 {
+    color: #333;
+  }
+  .choices button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .choices button:hover {
+    background-color: #45a049;
+  }
+  .display-area {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  .display-area p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  #player-choice, #computer-choice, #round-result {
+    font-weight: bold;
+  }
+  #score {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Rock, Paper, Scissors</h1>
+
+  <div class="choices">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+  </div>
+
+  <div class="display-area">
+    <p>Your choice: <span id="player-choice">-</span></p>
+    <p>Computer's choice: <span id="computer-choice">-</span></p>
+    <p>Result: <span id="round-result">-</span></p>
+  </div>
+
+  <div id="score">
+    <p>Score: Player <span id="player-score">0</span> - Computer <span id="computer-score">0</span></p>
+  </div>
+</div>
+
+<script>
+  const choices = ["Rock", "Paper", "Scissors"];
+  const playerChoiceDisplay = document.getElementById("player-choice");
+  const computerChoiceDisplay = document.getElementById("computer-choice");
+  const roundResultDisplay = document.getElementById("round-result");
+  const playerScoreDisplay = document.getElementById("player-score");
+  const computerScoreDisplay = document.getElementById("computer-score");
+
+  const rockButton = document.getElementById("rock");
+  const paperButton = document.getElementById("paper");
+  const scissorsButton = document.getElementById("scissors");
+
+  let playerScore = 0;
+  let computerScore = 0;
+
+  rockButton.addEventListener("click", () => playGame("Rock"));
+  paperButton.addEventListener("click", () => playGame("Paper"));
+  scissorsButton.addEventListener("click", () => playGame("Scissors"));
+
+  function playGame(playerChoice) {
+    const computerChoice = getComputerChoice();
+    const result = determineWinner(playerChoice, computerChoice);
+
+    playerChoiceDisplay.textContent = playerChoice;
+    computerChoiceDisplay.textContent = computerChoice;
+    roundResultDisplay.textContent = result;
+
+    if (result === "You Win!") {
+      playerScore++;
+    } else if (result === "Computer Wins!") {
+      computerScore++;
+    }
+
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+  }
+
+  function getComputerChoice() {
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+  }
+
+  function determineWinner(player, computer) {
+    if (player === computer) {
+      return "It's a Tie!";
+    }
+    if (
+      (player === "Rock" && computer === "Scissors") ||
+      (player === "Paper" && computer === "Rock") ||
+      (player === "Scissors" && computer === "Paper")
+    ) {
+      return "You Win!";
+    }
+    return "Computer Wins!";
+  }
+</script>
+
+</body>
+</html>
